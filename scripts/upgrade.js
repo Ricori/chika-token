@@ -4,15 +4,14 @@ async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying with account:", deployer.address);
 
+  const CHIKA_ADDRESS = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+
   const ChikaToken = await ethers.getContractFactory("ChikaToken");
-  const token = await upgrades.deployProxy(ChikaToken, [deployer.address]);
+  const token = await upgrades.upgradeProxy(CHIKA_ADDRESS, ChikaToken);
   await token.waitForDeployment();
 
-  const address = await token.getAddress();
-  const supply = await token.totalSupply();
+  console.log("ChikaToken upgraded");
 
-  console.log("ChikaToken deployed to:", address);
-  console.log("Total supply:", ethers.formatEther(supply), "CHIKA");
 }
 
 main().catch((error) => {

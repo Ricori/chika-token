@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const { ethers } = require("hardhat");
+const { ethers, upgrades } = require("hardhat"); // 加上 upgrades
 
 describe("ChikaToken", function () {
   let token, owner, addr1;
@@ -7,7 +7,8 @@ describe("ChikaToken", function () {
   beforeEach(async function () {
     [owner, addr1] = await ethers.getSigners();
     const ChikaToken = await ethers.getContractFactory("ChikaToken");
-    token = await ChikaToken.deploy(owner.address);
+    token = await upgrades.deployProxy(ChikaToken, [owner.address]); // 通过代理部署
+    await token.waitForDeployment();
   });
 
   it("should have correct name and symbol", async function () {
