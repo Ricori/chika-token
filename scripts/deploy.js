@@ -11,6 +11,7 @@ async function main() {
   const address = await token.getAddress();
   const supply = await token.totalSupply();
 
+  // 0xb0797fBD74044ae9F7E867370EAbd2930A94Ee1d
   console.log("ChikaToken deployed to:", address);
   console.log("Total supply:", ethers.formatEther(supply), "CHIKA");
 }

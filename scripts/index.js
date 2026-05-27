@@ -2,8 +2,7 @@ const { ethers } = require("hardhat");
 
 async function main() {
 
-
-  const address = '0x5fbdb2315678afecb367f032d93f642f64180aa3';
+  const address = '0x06a8290Bbbe82953150551d8697cB87c1A6a2b3F';
   const CHIKA = await ethers.getContractFactory('ChikaToken');
   const chika = CHIKA.attach(address);
 
