@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.22;
+pragma solidity ^0.8.28;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol";
@@ -20,7 +20,7 @@ contract ChikaToken is
     }
 
     function initialize(address initialOwner) public initializer {
-        __ERC20_init("TAKAMI CHIKA", "CHIKA");
+        __ERC20_init("CHIKA", "CHIKA");
         __ERC20Burnable_init();
         __Ownable_init(initialOwner);
 
