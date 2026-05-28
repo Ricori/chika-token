@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
-const { baseAddress } = require("./const");
+const { bscTestnetAddress } = require("./const");
 
-const address = baseAddress;
+const address = bscTestnetAddress;
 
 async function getToken() {
   const ChikaToken = await ethers.getContractFactory("ChikaToken");
@@ -96,7 +96,7 @@ async function transfer(toAddress, amount) {
 async function main() {
   const [owner] = await ethers.getSigners();
 
-  /*
+
   await getTotalSupply();
   await getBalance(owner.address);
   // Mint 233,3333 CHIKA 到 owner
@@ -104,13 +104,13 @@ async function main() {
   await new Promise((resolve) => setTimeout(resolve, 3000));
   await getTotalSupply();
   await getBalance(owner.address);
-  */
+
 
   // await transfer("0x3eF2f6034de2992b76f274983E4b97Fb14A46211", 2333333);
   // await new Promise((resolve) => setTimeout(resolve, 3000));
   // await getBalance(owner.address);
 
-  await burnToken(400 * 10000);
+  // await burnToken(400 * 10000);
 }
 
 main()

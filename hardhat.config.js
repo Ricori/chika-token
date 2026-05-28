@@ -44,6 +44,7 @@ module.exports = {
       url: `https://bnb-testnet.g.alchemy.com/v2/${alchemyApiKey}`,
       accounts: process.env.PRIVATE_KEY_2 ? [process.env.PRIVATE_KEY_2] : [],
       chainId: 97,
+      ignoreUnknownTxType: true,
     },
   },
   etherscan: {
