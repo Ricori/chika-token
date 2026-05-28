@@ -12,7 +12,7 @@ contract ChikaToken is
     ERC20BurnableUpgradeable,
     OwnableUpgradeable
 {
-    uint256 public constant MAX_SUPPLY = 1_000_000 * 10 ** 18;
+    uint256 public constant MAX_SUPPLY = 10_000_000 * 10 ** 18;
 
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
@@ -24,7 +24,7 @@ contract ChikaToken is
         __ERC20Burnable_init();
         __Ownable_init(initialOwner);
 
-        _mint(initialOwner, 5_000_000 * 10 ** decimals());
+        _mint(initialOwner, 2_333_333 * 10 ** decimals());
     }
 
     error ExceedsMaxSupply();

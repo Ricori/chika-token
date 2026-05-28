@@ -35,14 +35,14 @@ module.exports = {
       chainId: 84532,
       ignoreUnknownTxType: true,
     },
-    bnb: {
+    bsc: {
       url: `https://bnb-mainnet.g.alchemy.com/v2/${alchemyApiKey}`,
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      accounts: process.env.PRIVATE_KEY_2 ? [process.env.PRIVATE_KEY_2] : [],
       chainId: 56,
     },
-    bnbTestnet: {
+    bscTestnet: {
       url: `https://bnb-testnet.g.alchemy.com/v2/${alchemyApiKey}`,
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      accounts: process.env.PRIVATE_KEY_2 ? [process.env.PRIVATE_KEY_2] : [],
       chainId: 97,
     },
   },
