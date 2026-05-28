@@ -99,15 +99,16 @@ async function main() {
   /*
   await getTotalSupply();
   await getBalance(owner.address);
-  // Mint 100,0000 CHIKA 到 owner
-  await mintToken(owner.address, 100 * 10000);
-  // Mint 后再次查询
+  // Mint 233,3333 CHIKA 到 owner
+  await mintToken(owner.address, 2333333);
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   await getTotalSupply();
   await getBalance(owner.address);
   */
 
-  //await transfer("0xD70a27A537c2864Ec71f853807B4253db2213d6b", 100000);
-  //await getBalance(owner.address);
+  // await transfer("0x3eF2f6034de2992b76f274983E4b97Fb14A46211", 2333333);
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await getBalance(owner.address);
 
   await burnToken(400 * 10000);
 }
