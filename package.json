@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "hardhat run scripts/index.js --network localhost",
     "dev:baseSepolia": "hardhat run scripts/index.js --network baseSepolia",
+    "dev:base": "hardhat run scripts/index.js --network base",
     "compile": "hardhat compile",
     "test": "hardhat test",
     "node": "hardhat node",

@@ -2,6 +2,8 @@ require("@nomicfoundation/hardhat-toolbox");
 require("@openzeppelin/hardhat-upgrades");
 require("dotenv").config();
 
+const alchemyApiKey = process.env.ALCHEMY_API_KEY || "";
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
@@ -19,19 +21,29 @@ module.exports = {
       url: "http://127.0.0.1:8545",
     },
     sepolia: {
-      url: process.env.SEPOLIA_RPC_URL,
+      url: `https://eth-sepolia.g.alchemy.com/v2/${alchemyApiKey}`,
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
     base: {
-      url: process.env.BASE_MAINNET_RPC_URL,
+      url: `https://base-mainnet.g.alchemy.com/v2/${alchemyApiKey}`,
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       chainId: 8453,
     },
     baseSepolia: {
-      url: process.env.BASE_SEPOLIA_RPC_URL,
+      url: `https://base-sepolia.g.alchemy.com/v2/${alchemyApiKey}`,
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       chainId: 84532,
       ignoreUnknownTxType: true,
+    },
+    bnb: {
+      url: `https://bnb-mainnet.g.alchemy.com/v2/${alchemyApiKey}`,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      chainId: 56,
+    },
+    bnbTestnet: {
+      url: `https://bnb-testnet.g.alchemy.com/v2/${alchemyApiKey}`,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      chainId: 97,
     },
   },
   etherscan: {

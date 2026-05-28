@@ -12,7 +12,7 @@ contract ChikaToken is
     ERC20BurnableUpgradeable,
     OwnableUpgradeable
 {
-    uint256 public constant MAX_SUPPLY = 20_000_000 * 10 ** 18;
+    uint256 public constant MAX_SUPPLY = 1_000_000 * 10 ** 18;
 
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {

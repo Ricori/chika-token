@@ -1,7 +1,7 @@
 const { ethers } = require("hardhat");
-const { baseSepoliaTokenAddress } = require("./const");
+const { baseAddress } = require("./const");
 
-const address = baseSepoliaTokenAddress;
+const address = baseAddress;
 
 async function getToken() {
   const ChikaToken = await ethers.getContractFactory("ChikaToken");
@@ -43,6 +43,30 @@ async function mintToken(toAddress, amount) {
   console.log("Mint 成功，交易哈希:", tx.hash);
 }
 
+// 销毁代币
+async function burnToken(amount) {
+  const [signer] = await ethers.getSigners();
+  const token = (await getToken()).connect(signer);
+  const burnAmount = ethers.parseEther(amount.toString());
+
+  // 检查余额是否足够
+  const balance = await token.balanceOf(signer.address);
+  if (balance < burnAmount) {
+    console.error(`余额不足，当前余额: ${ethers.formatEther(balance)} CHIKA`);
+    return;
+  }
+
+  console.log(`正在销毁 ${amount} CHIKA...`);
+  const tx = await token.burn(burnAmount);
+  await tx.wait(2);
+  console.log("销毁成功，交易哈希:", tx.hash);
+
+  const newBalance = await token.balanceOf(signer.address);
+  const newTotalSupply = await token.totalSupply();
+  console.log(`销毁后余额: ${ethers.formatEther(newBalance)} CHIKA`);
+  console.log(`销毁后总供应量: ${ethers.formatEther(newTotalSupply)} CHIKA`);
+}
+
 async function transfer(toAddress, amount) {
   const [signer] = await ethers.getSigners();
   const token = (await getToken()).connect(signer);
@@ -57,7 +81,7 @@ async function transfer(toAddress, amount) {
 
   console.log(`正在转账 ${amount} CHIKA 到 ${toAddress}...`);
   const tx = await token.transfer(toAddress, transferAmount);
-  await tx.wait();
+  await tx.wait(2);
   console.log("转账成功，交易哈希:", tx.hash);
 
   const fromBalance = await token.balanceOf(signer.address);
@@ -85,6 +109,7 @@ async function main() {
   //await transfer("0xD70a27A537c2864Ec71f853807B4253db2213d6b", 100000);
   //await getBalance(owner.address);
 
+  await burnToken(400 * 10000);
 }
 
 main()
