@@ -22,27 +22,27 @@ module.exports = {
     },
     sepolia: {
       url: `https://eth-sepolia.g.alchemy.com/v2/${alchemyApiKey}`,
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      accounts: process.env.PRIVATE_KEY_BASE_OWNER ? [process.env.PRIVATE_KEY_BASE_OWNER] : [],
     },
     base: {
       url: `https://base-mainnet.g.alchemy.com/v2/${alchemyApiKey}`,
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      accounts: process.env.PRIVATE_KEY_BASE_OWNER ? [process.env.PRIVATE_KEY_BASE_OWNER] : [],
       chainId: 8453,
     },
     baseSepolia: {
       url: `https://base-sepolia.g.alchemy.com/v2/${alchemyApiKey}`,
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      accounts: process.env.PRIVATE_KEY_BASE_OWNER ? [process.env.PRIVATE_KEY_BASE_OWNER] : [],
       chainId: 84532,
       ignoreUnknownTxType: true,
     },
     bsc: {
       url: `https://bnb-mainnet.g.alchemy.com/v2/${alchemyApiKey}`,
-      accounts: process.env.PRIVATE_KEY_2 ? [process.env.PRIVATE_KEY_2] : [],
+      accounts: process.env.PRIVATE_KEY_BSC_OWNER ? [process.env.PRIVATE_KEY_BSC_OWNER] : [],
       chainId: 56,
     },
     bscTestnet: {
       url: `https://bnb-testnet.g.alchemy.com/v2/${alchemyApiKey}`,
-      accounts: process.env.PRIVATE_KEY_2 ? [process.env.PRIVATE_KEY_2] : [],
+      accounts: process.env.PRIVATE_KEY_BSC_OWNER ? [process.env.PRIVATE_KEY_BSC_OWNER] : [],
       chainId: 97,
       ignoreUnknownTxType: true,
     },

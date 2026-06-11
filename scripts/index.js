@@ -97,20 +97,20 @@ async function main() {
   const [owner] = await ethers.getSigners();
 
 
-  await getTotalSupply();
-  await getBalance(owner.address);
-  // Mint 233,3333 CHIKA 到 owner
-  await mintToken(owner.address, 2333333);
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  await getTotalSupply();
-  await getBalance(owner.address);
-
-
-  // await transfer("0x3eF2f6034de2992b76f274983E4b97Fb14A46211", 2333333);
+  // await getTotalSupply();
+  // await getBalance(owner.address);
+  // // Mint 233,3333 CHIKA 到 owner
+  // await mintToken(owner.address, 2333333);
   // await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await getTotalSupply();
   // await getBalance(owner.address);
 
-  // await burnToken(400 * 10000);
+
+  await transfer("0xeBE2B3dFcE6A8572b071357747EB58684EFb90DF", 2333);
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await getBalance(owner.address);
+
+  // await burnToken(2333333);
 }
 
 main()
